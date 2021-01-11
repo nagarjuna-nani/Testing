@@ -1,2 +1,25 @@
 ---
-# tasks file for Jenkins
+- hosts: all
+  become: yes
+  tasks:
+  - name: install packages
+    apt:
+     name: wget
+     state: present
+
+  - name: install jenkins using wget
+    command: wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+
+  - name: append the packages
+    command: sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+
+  - apt:
+     update_cache: yes
+
+  - apt:
+     name: jenkins
+     state: present
+
+
+
+      
