@@ -1,0 +1,14 @@
+---
+- name: update
+  apt:
+   update_cache: yes
+   state: latest
+- name: install Apache
+  apt:
+   name: apache2
+   state: present
+- name: allow ufw
+  ufw:
+   rule: allow
+   port: "80"
+   proto: tcp   

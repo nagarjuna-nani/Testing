@@ -1,2 +1,8 @@
 ---
 # defaults file for Lamp
+mysql_root_password: "mysql_root_password"
+app_user: "arjun"
+http_host: "test"
+http_conf: "test.conf"
+http_port: "80"
+disable_default: true
